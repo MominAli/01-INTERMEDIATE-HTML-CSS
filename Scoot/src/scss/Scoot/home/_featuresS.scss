@@ -1,0 +1,123 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.features-s {
+    padding: 12rem 0;
+    position: relative;
+    max-width: 144rem;
+    margin: 0 auto;
+
+    @include m.desktop {
+        padding: 16rem 0 20rem 0; 
+
+        &:before {
+            content: '';
+            background-color: #E5ECF4;
+            width: 90rem;
+            height: 1.5rem;
+            position: absolute;
+            top: 20rem;
+            left: 0;
+            z-index: -1; 
+
+            @include m.desktop-xl { 
+                width: 100rem;   
+            }
+        }
+    }
+
+    &__contenido {
+        @include m.grid(1, 4.8rem);
+        justify-items: center;
+        max-width: 31.1rem;
+        height: 79.2rem;
+        position: relative;
+        margin: 0 auto;
+
+        &::after {
+            @include m.tablet { 
+                content: '';
+                background-color: #E5ECF4;
+                width: 1.5rem;
+                height: 51.3rem;
+                position: absolute;
+                top: -12rem;
+                left: 4rem;
+                z-index: -1;   
+            }
+
+            @include m.desktop { 
+                display: none;
+            }
+        }
+
+        @include m.tablet { 
+            gap: 4rem;
+            max-width: 57.3rem;
+            height: 47rem;
+        }
+
+        @include m.desktop { 
+            max-width: max-content;
+            height: 29.1rem;
+            @include m.grid(3, 3rem);
+        }
+    }
+}
+
+.feature {
+    width: 31.1rem;
+    height: 23.2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    @include m.tablet { 
+        flex-direction: row;
+        align-items: center;
+        width: 57.3rem;
+        height: 13rem;
+        gap: 7.9rem;
+        text-align: left;
+    }
+
+    @include m.desktop { 
+        flex-direction: column;
+        width: 35rem;
+        height: 29rem;
+        gap: 4rem;
+    }
+
+    &__imagen {
+        width: 5.6rem;
+        height: 5.6rem;
+        margin: auto;
+        animation-name: updown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        @include m.tablet { 
+            width: 9.6rem;
+            height: 9.6rem;
+        }
+
+        @include m.desktop { 
+            margin-left: initial;
+        }
+    }
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+    }
+
+    &__heading {
+        margin-bottom: 2.4rem;
+    }
+
+    &__texto {
+        color: v.$dimGray;
+    }
+}

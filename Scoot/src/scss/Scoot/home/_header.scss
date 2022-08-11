@@ -1,0 +1,154 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header {
+    background-color: v.$white;
+    height: 6.4rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    @include m.tablet { 
+        height: 9.6rem;
+    }
+
+    &__barra {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 111rem;
+        padding: 2.2rem 3.2rem;
+        margin: 0 auto;
+
+        @include m.tablet { 
+            gap: 5.8rem;
+            padding: 2.2rem 3.9rem;
+            flex-direction: row;
+        }
+
+        @include m.desktop { 
+            padding-inline: 0;
+        }
+
+        @include m.desktop-xl { 
+            max-width: 110.6rem;
+        }
+    }
+
+    &__logo {
+        margin: 0 auto;
+        img {
+            width: 7.5rem;
+            height: 2rem;
+
+            @include m.tablet { 
+                width: 10.7rem;
+                height: 2.85rem;
+            }
+        }
+    }
+
+    &__btn {
+        width: 1.65rem;
+        height: 1.65rem;
+        background-image: url(../img/hamburger.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 1.65rem;
+
+        &[aria-expanded="true"] {
+            background-image: url(../img/close.svg);
+        }
+
+        @include m.tablet { 
+            display: none;
+        }
+    }
+
+    &__derecha {
+        background-color: #333A44;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: fixed;
+        top: 6.4rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 25.6rem;
+        padding: 6.4rem 13.5rem 2.4rem 3.2rem;
+        left: 100%;
+        transition-property: left;
+        transition-duration: .3s;
+
+        &[data-visible="true"] {
+            left: 0%;
+        }
+
+        @include m.tablet { 
+            background-color: transparent;
+            padding: 0;
+            width: auto;
+            position: initial;
+            flex-direction: row;
+            align-items: center;
+            flex: 1;
+        }
+    }
+
+    &__get-scootin {
+        @include m.boton(v.$yellow, v.$white);
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    @include m.tablet { 
+        flex-direction: row;
+        align-items: center;
+        gap: 3.2rem;
+    }
+
+    &__enlace {
+        font-family: v.$fontHeading;
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+        color: #E5ECF4;
+
+        @include m.tablet { 
+            color: v.$dimGray;
+            font-size: 1.5rem;
+            transition: color .2s;
+
+            &:hover {
+                color: v.$yellow;
+            }
+        }
+    }
+}
+
+.overlay {
+    top: 6.4rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: v.$black;
+    opacity: 74.73%;
+    opacity: 0;
+    transition: all .5s;
+
+    @include m.tablet { 
+        display: none;
+    }
+
+    &.activo {
+        opacity: 74.73%;
+        position: fixed;
+    }
+}

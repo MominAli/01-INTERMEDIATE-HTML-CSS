@@ -1,0 +1,168 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.map {
+    padding: 0 3.2rem;
+    margin-bottom: 7.2rem;
+
+    @include m.tablet { 
+        padding-inline: 3.9rem;
+        margin-bottom: 6.4rem;
+    }
+
+    @include m.desktop { 
+        margin-bottom: 12rem;
+    }
+
+    &__imagen-c {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        
+        @include m.tablet { 
+            position: relative;
+        }
+    }
+
+    &__imagen {
+        width: 100%;
+        height: auto;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+
+    &__ciudad {
+        padding: 2.2rem;    
+        text-align: center;
+    
+        @include m.tablet { 
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: .2rem 3rem;
+            background-color: v.$yellow;
+            width: 12rem;
+            animation-name: updownMap;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @include m.desktop { 
+            width: 18.9rem;
+            padding: 2.2rem 0;
+        }
+
+        &:first-of-type {
+            @include m.tablet { 
+                top: 5.5rem;
+                left: 9.5rem;
+            }
+
+            @include m.tablet-xl { 
+                left: 15.5rem;
+                top: 8rem;
+            }
+
+            @include m.desktop { 
+                left: 14.5rem;
+                top: 7.5rem;
+            }
+        }
+
+        &:nth-child(2) {
+            @include m.tablet { 
+                top: 2.5rem;
+                left: 25rem;
+            }
+
+            @include m.tablet-xl { 
+                left: 34.5rem;
+                top: 4.5rem;
+            }
+
+            @include m.desktop { 
+                left: 39.5rem;
+                top: 1.5rem;
+            }
+        }
+
+        &:nth-child(3) {
+            @include m.tablet { 
+                top: 6.5rem;
+                left: 53rem;
+            }
+
+            @include m.tablet-xl { 
+                left: 72rem;
+                top: 10.5rem;
+            }
+
+            @include m.desktop { 
+                left: 85.8rem;
+                top: 8rem;
+            }
+        }
+
+        &:last-of-type {
+            @include m.tablet { 
+                top: 17rem;
+                left: 48rem;
+            }
+
+            @include m.tablet-xl { 
+                left: 66rem;
+                top: 24.2rem;
+            }
+
+            @include m.desktop{ 
+                left: 77.5rem;
+                top: 25rem;
+            }
+        }
+
+        &:not(:first-of-type) {
+            background-color: #FFF4DF;
+
+            @include m.tablet { 
+                background-color: v.$yellow;
+            }
+        }
+    }
+
+    &__nombre {
+        @include m.tablet { 
+            font-size: 1.3rem;
+            line-height: 2.8rem;
+            letter-spacing: -0.58px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 1.6rem;
+                height: .8rem;
+                background-color: v.$yellow;
+                bottom: -0.8rem;
+                left: 50%;
+                transform: translateX(-50%) rotate(180deg);
+                clip-path: polygon(50% 0, 100% 100%, 0 100%);
+
+                @include m.desktop { 
+                    width: 3.2rem;
+                    height: 1.6rem;
+                    bottom: -3.7rem;
+                }
+            }
+        }
+
+        @include m.desktop { 
+            font-size: 2.4rem;
+            line-height: 2.8rem;
+            letter-spacing: -1.07px;
+        }
+    }
+}

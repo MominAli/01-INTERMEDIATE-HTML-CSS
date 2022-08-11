@@ -1,0 +1,139 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.hero {
+    background-image: url(../img/home-hero-mobile.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65rem;
+    overflow-x: hidden;
+    position: relative;
+
+    &::before {
+        content: '';
+        background-image: url(../img/right-arrow.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 44.63rem;
+        height: 15rem;
+        position: absolute;
+        left: -31.2rem;
+        bottom: 3.45rem;
+        animation-name: updown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        @include m.tablet { 
+            bottom: 3.9rem;
+            left: -12.7rem;
+        }
+
+        @include m.desktop { 
+            bottom: 15.7rem;
+            left: 70.5rem;
+        }
+    }
+
+    &::after {
+        @include m.tablet { 
+            content: '';
+            background-image: url(../img/white-circles.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 23.4rem;
+            height: 6.3rem;
+            position: absolute;
+            bottom: 4.5rem;
+            right: -3.1rem;
+        }
+
+        @include m.desktop-xl { 
+            bottom: 16.4rem;
+            right: -4.8rem;
+        }
+    }
+
+    @include m.tablet { 
+        background-image: url(../img/home-hero-tablet.jpg);
+    }
+
+    @include m.desktop { 
+        background-image: url(../img/home-hero-desktop.jpg);
+    }
+
+    &__contenedor {
+        position: relative;
+    }
+
+    &__contenido {
+        position: absolute;
+        top: 11.5rem;
+        left: 0;
+        right: 0;
+        bottom: 17.9rem;
+        width: 31.1rem;
+        height: 35.6rem;
+        margin: 0 auto;
+        text-align: center;
+        color: v.$white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        @include m.telefono { 
+            width: 36rem;
+        }
+
+        @include m.tablet { 
+            width: 57.3rem;
+            height: 29.6rem;
+            top: 13.7rem;
+            bottom: 21.7rem;
+        }
+
+        @include m.desktop { 
+            align-items: flex-start;
+            width: 50.2rem;
+            height: 35rem;
+            top: 15rem;
+            left: 0; 
+            margin: 0;
+            text-align: left;  
+        }
+    }
+
+    &__texto {
+        @include m.desktop { 
+            margin-left: 10rem;
+        }
+    }
+
+    &__link {
+        @include m.boton(v.$yellow, v.$white);
+
+        @include m.desktop { 
+            margin-left: 10rem;
+        }
+    }
+
+    &__linea {
+        display: none;
+
+        @include m.desktop { 
+            display: block;
+            position:absolute;
+            bottom: 29rem;
+            left: -13rem;
+            animation-name: updown;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @include m.desktop-xl { 
+            left: 0;
+        }
+    }
+
+}

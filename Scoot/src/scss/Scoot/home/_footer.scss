@@ -1,0 +1,94 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+    background-color: #333A44;
+    height: 43.8rem;
+    padding: 6.4rem 3.2rem 7.8rem;
+
+    @include m.tablet { 
+        padding: 3.5rem 3.9rem;
+        height: 9.6rem;
+    }
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include m.tablet { 
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__izquierda {
+
+        @include m.tablet { 
+            display: flex;
+            align-items: center;
+            gap: 5.8rem;
+        }
+    }
+
+    &__logo {
+        margin-bottom: 4.2rem;
+        display: inline-block;
+
+        svg path {
+            fill: v.$white;
+        }
+
+        @include m.tablet { 
+            margin-bottom: 0;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        align-items: center;
+        margin-bottom: 8.5rem;
+
+        @include m.tablet { 
+            margin-bottom: 0;
+            flex-direction: row;
+        }
+    }
+
+    &__enlace {
+        color: v.$dimGray;
+        transition: color .3s;
+
+        &:hover {
+            color: v.$yellow;
+        }
+    }
+
+    &__iconos {
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+
+        a {
+            svg path {
+                transition: fill .3s;
+            }
+
+            &:hover svg path {
+                fill: v.$white;
+            }
+        }
+    }
+}
+
+.autor {
+    text-align: center;
+    color: v.$white;
+    font-size: 1rem;
+
+    span {
+        font-style: italic;
+    }
+}

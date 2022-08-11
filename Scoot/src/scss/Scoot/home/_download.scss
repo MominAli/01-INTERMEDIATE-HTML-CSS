@@ -1,0 +1,53 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.download {
+    padding: 7.2rem 3.2rem;
+    background-color: v.$darkNavy;
+    height: 30rem;
+    background-image: url(../img/semi-circles.svg);
+    background-position: 76% bottom;
+    background-repeat: no-repeat;
+
+    @include m.tablet { 
+        background-position: bottom center;
+        padding: 6.2rem 16rem;
+    }
+
+    @include m.tablet-xl{ 
+        padding: 10.2rem 3.9rem;
+    }
+
+    @include m.desktop-xl { 
+        background-position: 44.2rem bottom;
+    }
+
+    &__contenido {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+        @include m.tablet-xl { 
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
+        }  
+
+        h2 {
+            color: v.$white;
+
+            @include m.tablet-xl { 
+                width: 41rem;
+            }
+        }
+    }
+
+    &__tiendas {
+        display: flex;
+        gap: 1.2rem;
+    }
+
+}

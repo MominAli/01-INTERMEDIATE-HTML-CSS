@@ -1,0 +1,235 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.features-b {
+    overflow-x: hidden;
+    padding-bottom: 12rem;
+
+    @include m.desktop { 
+        padding-bottom: 20rem;
+    }
+
+    &__contenido {
+        @include m.grid(1, 12rem);
+
+        @include m.tablet { 
+            gap: 12.8rem;
+        }
+
+        @include m.desktop { 
+            gap: 16rem;
+        }
+    }
+}
+
+.feature-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5.6rem;
+    
+    @include m.desktop { 
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &:nth-child(odd) {
+        @include m.desktop { 
+            flex-direction: row-reverse;   
+        }
+    }
+
+    &:nth-child(2) .feature-card__imagen-c {
+
+        &::before {
+            background-image: url(../img/right-arrow.svg);
+            top: 2rem;
+            left: -19rem;
+
+            @include m.telefono { 
+                left: -21rem;
+            }
+
+            @include m.tablet { 
+                left: -9.6rem;
+                top: 0;
+                background-position: left;
+            }
+
+            @include m.tablet-xl { 
+                left: -1.6rem;
+            }
+
+            @include m.desktop { 
+                left: -25rem;
+            }
+        }
+
+        &::after {
+            @include m.tablet { 
+                left: -45%;
+            }
+
+            @include m.tablet-xl{ 
+                left: -25%;
+            }
+
+            @include m.desktop { 
+                left: -105%;
+            }
+
+            @include m.desktop-xl { 
+                left: -113%;
+            }
+        }
+    }
+
+    &:nth-child(3) .feature-card__imagen-c {
+
+        &::before {
+            top: -0.5rem;
+            right: -52.5rem;
+
+            @include m.tablet { 
+                right: -37rem;
+                top: 7.5rem
+            }
+
+            @include m.tablet-xl { 
+                right: -28rem;
+            }
+
+            @include m.desktop { 
+                right: -53rem;
+            }
+
+        }
+    }
+
+    &__imagen-c {
+        position: relative;
+
+        &::before {
+            content: '';
+            background-image: url(../img/left-downward-arrow.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 73.5rem;
+            height: 14.8rem;
+            position: absolute;
+            top: 53%;
+            animation-name: updown;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+            @include m.tablet { 
+                top: 66.8%;
+                right: 0;
+                background-position: right;
+                height: 14.8rem;
+            }
+
+            @include m.desktop { 
+                flex: 1;
+                right: -16rem;
+            }
+        }
+
+        &::after {
+            @include m.tablet { 
+                content: '';
+                background-color: v.$lightGrey;
+                width: 44.5rem;
+                height: 44.5rem;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                right: -45%;
+                z-index: -1;
+            }
+
+            @include m.tablet-xl { 
+                right: -25%;
+            }
+
+            @include m.desktop { 
+                right: -105%;
+            }
+
+            @include m.desktop-xl { 
+                right: -113%;
+            }
+        }
+
+        @include m.tablet { 
+            width: 100%;
+        }
+
+        @include m.desktop { 
+            width: 44.5rem;
+        }
+    }
+
+    &__imagen {
+        width: 30.5rem;
+        height: 30.5rem;
+        border-radius: 50%;
+
+        @include m.tablet { 
+            width: 44.5rem;
+            height: 44.5rem;
+            margin: 0 auto;
+        }
+
+        @include m.desktop { 
+            margin-left: auto;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 3.2rem;
+        text-align: center;
+        padding: 0 3.2rem;
+
+        @include m.telefono { 
+            padding: 0 9.8rem;
+        }
+
+        @include m.tablet { 
+            gap: 5rem;
+        }
+
+        @include m.desktop { 
+            padding: 0;
+            align-items: flex-start;
+            text-align: left;
+            width: 44.5rem;
+            gap: 0;
+        }
+    }
+
+    &__heading {
+        @include m.tablet { 
+            padding: 0 2rem;
+        }
+
+        @include m.desktop { 
+            padding: 0;
+        }
+    }
+
+    &__texto {
+        color: v.$dimGray;
+
+        @include m.desktop { 
+            margin: 2.4rem 0 4rem 0;
+        }
+    }
+
+    &__link {
+        @include m.boton(v.$yellow, v.$white);
+    }
+}

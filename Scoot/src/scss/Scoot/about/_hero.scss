@@ -1,0 +1,65 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.hero-g {
+    height: 16rem;
+    background-image: url(../img/about-hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow-x: hidden;
+    margin-bottom: 7.2rem;
+
+    @include m.tablet { 
+        background-image: url(../img/about-hero-tablet.jpg);
+        height: 20rem;
+        margin-bottom: 14.4rem;
+
+        &::before {
+            content: '';
+            background-image: url(../img/white-circles.svg);
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-position-y: center;
+            width: 23.4rem; 
+            height: 6.3rem;
+            position: absolute;
+            top: 50%;
+            right: -3rem;
+            transform: translateY(-50%);
+        }
+    }
+
+    @include m.desktop { 
+        background-image: url(../img/about-hero-desktop.jpg);
+        margin-bottom: 12rem;
+    }
+
+    &__contenido {
+        padding: 6rem 0;
+        text-align: center;
+
+        @include m.tablet { 
+            text-align: left;
+            padding: 7.2rem 9.7rem;
+        }
+
+        @include m.desktop { 
+            padding-inline: 0;
+        }
+    }
+
+    &--careers,
+    &--locations {
+        background-image: url(../img/careers-location-hero-mobile.jpg);
+
+        @include m.tablet { 
+            background-image: url(../img/careers-locations-hero-tablet.jpg);
+        }
+
+        @include m.desktop { 
+            background-image: url(../img/careers-locations-hero-desktop.jpg);
+        }
+    }
+}

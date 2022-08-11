@@ -1,0 +1,178 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.about {
+    overflow-x: hidden;
+    margin-bottom: 12rem;
+
+    &__contenido {
+        @include m.grid(1, 12rem);
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5.6rem;
+
+        
+        @include m.desktop { 
+            flex-direction: row;
+            justify-content: space-between;
+
+            &:nth-child(odd) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        &:nth-child(2) .about__imagen-c {
+            &::before {
+                content: '';
+                background-image: url(../img/right-arrow.svg);
+                background-position: left;
+                top: -.67rem;
+                left: -13rem;
+
+                @include m.telefono { 
+                    left: -28rem;
+                }
+
+                @include m.tablet { 
+                    left: -9.5rem;
+                    top: 0;
+                }
+
+                @include m.tablet-xl { 
+                    left: -5.5rem;
+                }
+
+                @include m.desktop{ 
+                    left: -25.5rem;
+                }
+            }
+
+            &::after {
+                @include m.tablet { 
+                    left: -45%;
+                }
+
+                @include m.tablet-xl { 
+                    left: -25%;
+                }
+
+                @include m.desktop { 
+                    left: -105%;
+                }
+
+                @include m.desktop { 
+                    left: -113%;
+                }
+            }
+        }
+    }
+
+    &__imagen-c {
+        position: relative;
+
+        &::before {
+            content: '';
+            background-image: url(../img/left-upward-arrow.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 73.5rem;
+            height: 14.8rem;
+            position: absolute;
+            bottom: 3.2rem;
+            right: -41rem;
+            background-position: right;
+            animation-name: updown;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+            @include m.tablet { 
+                right: 0;
+            }
+
+            @include m.desktop { 
+                right: -23rem;
+            }
+
+            @include m.desktop-xl { 
+                right: -16.4rem;
+            }
+        }
+
+        &::after {
+            @include m.tablet { 
+                content: '';
+                background-image: url(../img/circle.svg);
+                background-repeat: no-repeat;
+                width: 44.5rem;
+                height: 44.5rem;
+                position: absolute;
+                top: 0;
+                right: -45%;
+                z-index: -1;
+            }
+
+            @include m.tablet-xl { 
+                right: -25%;
+            }
+
+            @include m.desktop { 
+                right: -105%;
+            }
+
+            @include m.desktop-xl { 
+                right: -113%;
+            }
+        }
+
+        @include m.tablet { 
+            width: 100%;
+        }
+
+        @include m.desktop { 
+            width: 44.5rem;
+        }
+    }
+
+    &__imagen {
+        width: 31.1rem;
+        height: 31.1rem;
+        border-radius: 50%;
+        
+        @include m.tablet { 
+            width: 44.5rem;
+            height: 44.5rem;
+            margin: 0 auto;
+        }
+    }
+
+    &__info {
+        text-align: center;
+        padding: 0 3.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        @include m.telefono { 
+            padding: 0 9.8rem;
+        }
+
+        @include m.tablet { 
+            gap: 4rem;
+        }
+
+        @include m.desktop { 
+            gap: 2.4rem;
+            width: 44.5rem;
+            padding: 0;
+            text-align: left;
+        }
+    }
+
+    &__texto {
+        color: v.$dimGray;
+    }
+}

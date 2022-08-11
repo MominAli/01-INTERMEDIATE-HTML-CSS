@@ -1,0 +1,135 @@
+@use 'variables' as v; 
+@use 'mixins' as m; 
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+[class$="__contenedor"] { 
+    max-width: 111rem;
+    margin: 0 auto;
+}
+
+  
+body {
+    font-family: v.$fontBody;
+    font-size: 1.5rem;
+    color: v.$darkNavy;
+    line-height: 2.5rem;
+    font-weight: 400;
+    overflow-x: hidden;
+
+    &[data-scroll="false"] {
+        overflow: hidden;
+
+        @include m.tablet { 
+            overflow-y: auto;
+        }
+    }
+}
+
+p {
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+
+    &:focus {
+        outline: v.$yellow dotted 3px;
+    }
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    font-family: v.$fontHeading;
+    color: v.$darkNavy;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    letter-spacing: -1.78px;
+    color: v.$white;
+
+    @include m.tablet { 
+        font-size: 5.6rem;
+        letter-spacing: -2.5px;
+        line-height: 5.6rem;
+    }   
+}
+
+h2 {
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+    letter-spacing: -1.42px;
+
+    @include m.tablet { 
+        font-size: 4.8rem;
+        letter-spacing: -2.14px;
+        line-height: 4.8rem;
+    }
+}
+
+h3 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    letter-spacing: -1.07px;
+
+    @include m.tablet { 
+        font-size: 4rem;
+        letter-spacing: -1.79px;
+        line-height: 4.8rem;   
+    }
+}
+
+h4 {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    letter-spacing: -0.89px;
+
+    @include m.tablet { 
+        font-size: 2.4rem;
+        letter-spacing: -1.07px;
+        line-height: 2.8rem;
+    }
+}
+
+h5 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    letter-spacing: -1.07px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+details {
+    summary {
+        list-style: none;
+    }
+}

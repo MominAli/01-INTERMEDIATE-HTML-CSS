@@ -1,0 +1,98 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.values {
+    margin-bottom: 14.5rem;
+
+    @include m.tablet { 
+        margin-bottom: 12rem;
+    }
+
+    &__heading {
+        text-align: center;
+        margin-bottom: 6.4rem;
+
+        @include m.tablet { 
+            margin-bottom: 5rem;
+        }
+
+        @include m.desktop { 
+            margin-bottom: 10.3rem;
+        }
+    }
+
+    &__contenido {
+        @include m.desktop { 
+            @include m.grid(3, 3rem);
+        }
+    }
+}
+
+.value {
+    padding: 0 3.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.4rem;
+    text-align: center;
+
+    @include m.telefono { 
+        padding: 0 9.8rem;
+    }
+
+    @include m.tablet { 
+        gap: 8.7rem;
+        padding-inline: 15.6rem;   
+    }
+
+    @include m.desktop { 
+        padding: 0;
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: 5.6rem;
+    }
+
+    &__imagen-c {
+        position: relative;
+
+    }
+
+    &__imagen {
+        width: 24rem;
+        height: 24rem;
+        border-radius: 50%;
+    }
+
+    &__numero-c {
+        position: absolute;
+        bottom: -4.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 9.6rem;
+        height: 9.6rem;
+        border-radius: 50%;
+        background-color: v.$yellow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__numero {
+        font-family: v.$fontHeading;
+        color: v.$darkNavy;
+        font-size: 2.4rem;
+        line-height: 2.8rem;
+        letter-spacing: -1.07px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 2.7rem;
+    }
+
+    &__texto {
+        color: v.$dimGray;
+    }
+}
